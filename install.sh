@@ -40,6 +40,7 @@ SCRIPT_DIR="$(cd "$(dirname "$(realpath "$0")")" && pwd)"
 
 source "$SCRIPT_DIR/lib/tools.sh"
 source "$SCRIPT_DIR/lib/ui.sh"
+source "$SCRIPT_DIR/lib/preflight.sh"
 
 # ─────────────────────────────────────────────
 # Tool group selection
@@ -94,6 +95,8 @@ main() {
     "DarkeFYI Setup"
 
   require_root "$@"
+
+  run_preflight
 
   select_tools
 
