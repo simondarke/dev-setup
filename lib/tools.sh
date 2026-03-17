@@ -2,7 +2,7 @@
 set -euo pipefail
 
 select_tools() {
-  #section "Tool Selection"
+  section "Tool Selection"
   SELECTED=$(
     gum choose \
       --no-limit
@@ -35,4 +35,8 @@ configure_tools() {
       "configure_$tool"
     fi
   done
+}
+
+has_tool() {
+  echo "$SELECTED" | grep -q "^$1$"
 }
